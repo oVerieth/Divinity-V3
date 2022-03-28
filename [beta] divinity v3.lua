@@ -1961,29 +1961,30 @@ local function visual_other()
     end
 
     local mouse_x, mouse_y = input.GetMousePos()
+    if menu:IsActive() then 
+        --controle keybinds position
+        if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue()) <= 50) then
+            invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:SetValue(mouse_x)
+            invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:SetValue(mouse_y)
+        end
 
-    --controle keybinds position
-    if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue()) <= 50) then
-        invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:SetValue(mouse_x)
-        invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:SetValue(mouse_y)
-    end
+        --controle spec. list position
+        if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue()) <= 50) then
+            invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:SetValue(mouse_x)
+            invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:SetValue(mouse_y)
+        end
 
-    --controle spec. list position
-    if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue()) <= 50) then
-        invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:SetValue(mouse_x)
-        invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:SetValue(mouse_y)
-    end
+        --controle hit station
+        if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue()) <= 50) then
+            invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:SetValue(mouse_x)
+            invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:SetValue(mouse_y)
+        end
 
-    --controle hit station
-    if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue()) <= 50) then
-        invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:SetValue(mouse_x)
-        invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:SetValue(mouse_y)
-    end
-
-    --controle watermark
-    if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue()) <= 50) then
-        invisible_gui.gui_divinity_visual_group_other_watermark_position_x:SetValue(mouse_x)
-        invisible_gui.gui_divinity_visual_group_other_watermark_position_y:SetValue(mouse_y)
+        --controle watermark
+        if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue()) <= 50) then
+            invisible_gui.gui_divinity_visual_group_other_watermark_position_x:SetValue(mouse_x)
+            invisible_gui.gui_divinity_visual_group_other_watermark_position_y:SetValue(mouse_y)
+        end
     end
 
     --security system
