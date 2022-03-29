@@ -88,13 +88,13 @@ local gui_divinity_antiaim_group_main_yaw_standing_left = gui.Slider(gui_divinit
 local gui_divinity_antiaim_group_main_yaw_slowwalking_left = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yaw_slowwalking_left", "Yaw Angle Left", 0, -180, 180, 1)
 local gui_divinity_antiaim_group_main_yaw_moving_left = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yaw_moving_left", "Yaw Angle Left", 0, -180, 180, 1)
 local gui_divinity_antiaim_group_main_yaw_inair_left = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yaw_inair_left", "Yaw Angle Left", 0, -180, 180, 1)
-local gui_divinity_antiaim_group_main_yawmodifier_standing = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_standing", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter")
+local gui_divinity_antiaim_group_main_yawmodifier_standing = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_standing", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest")
 gui_divinity_antiaim_group_main_yawmodifier_standing:SetDescription("Do not use with jitter desync")
-local gui_divinity_antiaim_group_main_yawmodifier_slowwalking = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_slowwalking", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter")
+local gui_divinity_antiaim_group_main_yawmodifier_slowwalking = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_slowwalking", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest")
 gui_divinity_antiaim_group_main_yawmodifier_slowwalking:SetDescription("Do not use with jitter desync")
-local gui_divinity_antiaim_group_main_yawmodifier_moving = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_moving", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter")
+local gui_divinity_antiaim_group_main_yawmodifier_moving = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_moving", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest")
 gui_divinity_antiaim_group_main_yawmodifier_moving:SetDescription("Do not use with jitter desync")
-local gui_divinity_antiaim_group_main_yawmodifier_inair = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_inair", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter")
+local gui_divinity_antiaim_group_main_yawmodifier_inair = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_inair", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest")
 gui_divinity_antiaim_group_main_yawmodifier_inair:SetDescription("Do not use with jitter desync")
 local gui_divinity_antiaim_group_main_yawmodifierrange_standing = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifierrange_standing", "Yaw Modifier Range", 0, 0, 180, 1)
 local gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifierrange_slowwalking", "Yaw Modifier Range", 0, 0, 180, 1)
@@ -761,6 +761,7 @@ end
 local jitter_yaw = 0
 local speenbot_yaw_helper = 0
 local rotating_yaw_helper = 0
+local static_aa_curtime = 0
 
 --all jitters
 local function anti_aim_main_yaw( ... )
@@ -1172,6 +1173,76 @@ local function anti_aim_main_yaw( ... )
             end
             if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_inair:GetValue()*2) == 0 then
                 jitter_yaw = ChangeYaw(180 - gui_divinity_antiaim_group_main_yaw_inair_left:GetValue())
+            end
+        end
+    end
+
+    if gui.GetValue("rbot.antiaim.base.rotation") < 0 then 
+        if localplayerstanding == true and gui_divinity_antiaim_group_main_yawmodifier_standing:GetValue() == 8 then
+            if globals.CurTime() - static_aa_curtime >= 0.0243 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_standing_right:GetValue()-(gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue()/2))
+            end
+            if globals.CurTime() - static_aa_curtime >= 0.0486 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_standing_right:GetValue()+(gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue()/2))
+                static_aa_curtime = globals.CurTime()
+            end
+        elseif localplayerslowwalking == true and gui_divinity_antiaim_group_main_yawmodifier_slowwalking:GetValue() == 8 then
+            if globals.CurTime() - static_aa_curtime >= 0.0243 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_slowwalking_right:GetValue()-(gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue()/2))
+            end
+            if globals.CurTime() - static_aa_curtime >= 0.0486 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_slowwalking_right:GetValue()+(gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue()/2))
+                static_aa_curtime = globals.CurTime()
+            end
+        elseif localplayermoving == true and gui_divinity_antiaim_group_main_yawmodifier_moving:GetValue() == 8 then
+            if globals.CurTime() - static_aa_curtime >= 0.0243 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_moving_right:GetValue()-(gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue()/2))
+            end
+            if globals.CurTime() - static_aa_curtime >= 0.0486 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_moving_right:GetValue()+(gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue()/2))
+                static_aa_curtime = globals.CurTime()
+            end
+        elseif localplayerinair == true and gui_divinity_antiaim_group_main_yawmodifier_inair:GetValue() == 8 then
+            if globals.CurTime() - static_aa_curtime >= 0.0243 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_inair_right:GetValue()-(gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue()/2))
+            end
+            if globals.CurTime() - static_aa_curtime >= 0.0486 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_inair_right:GetValue()+(gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue()/2))
+                static_aa_curtime = globals.CurTime()
+            end
+        end
+    elseif gui.GetValue("rbot.antiaim.base.rotation") >= 0 then 
+        if localplayerstanding == true and gui_divinity_antiaim_group_main_yawmodifier_standing:GetValue() == 8 then
+            if globals.CurTime() - static_aa_curtime >= 0.0243 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_standing_left:GetValue()-(gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue()/2))
+            end
+            if globals.CurTime() - static_aa_curtime >= 0.0486 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_standing_left:GetValue()+(gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue()/2))
+                static_aa_curtime = globals.CurTime()
+            end
+        elseif localplayerslowwalking == true and gui_divinity_antiaim_group_main_yawmodifier_slowwalking:GetValue() == 8 then
+            if globals.CurTime() - static_aa_curtime >= 0.0243 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_slowwalking_left:GetValue()-(gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue()/2))
+            end
+            if globals.CurTime() - static_aa_curtime >= 0.0486 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_slowwalking_left:GetValue()+(gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue()/2))
+                static_aa_curtime = globals.CurTime()
+            end
+        elseif localplayermoving == true and gui_divinity_antiaim_group_main_yawmodifier_moving:GetValue() == 8 then
+            if globals.CurTime() - static_aa_curtime >= 0.0243 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_moving_left:GetValue()-(gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue()/2))
+            end
+            if globals.CurTime() - static_aa_curtime >= 0.0486 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_moving_left:GetValue()+(gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue()/2))
+                static_aa_curtime = globals.CurTime()
+            end
+        elseif localplayerinair == true and gui_divinity_antiaim_group_main_yawmodifier_inair:GetValue() == 8 then
+            if globals.CurTime() - static_aa_curtime >= 0.0243 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_inair_left:GetValue()-(gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue()/2))
+            end
+            if globals.CurTime() - static_aa_curtime >= 0.0486 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_inair_left:GetValue()+(gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue()/2))
+                static_aa_curtime = globals.CurTime()
             end
         end
     end
@@ -1724,7 +1795,9 @@ local animation_caches = {
     cvar_cache = 1,
     tick = 0,
     fps = 0,
-    ip = 0
+    ip = 0,
+    local_file_names = {"hit station/model.png", "hit station/head.png", "hit station/body.png", "hit station/right arm.png", "hit station/left arm.png", "hit station/legs.png"},
+    true_counter = 0
 }
 
 local function spectators()
@@ -1769,41 +1842,66 @@ end
 client.AllowListener("weapon_fire");
 callbacks.Register("FireGameEvent", get_texture);
 
---model
-png_open_model = file.Open("hit station/model.png","r")
-png_read_model = png_open_model:Read()
-png_open_model:Close()
-model = draw.CreateTexture(common.DecodePNG(png_read_model))
+function check_file_valid(filename)
+    local is_valid = false
+    file.Enumerate(
+        function(file) 
+            if file == filename then
+                is_valid = true
+            end
+        end
+    )
+    return is_valid
+end
 
---head
-png_open_head = file.Open("hit station/head.png","r")
-png_read_head = png_open_head:Read()
-png_open_head:Close()
-head = draw.CreateTexture(common.DecodePNG(png_read_head))
+--model checker
+for i = 1, #animation_caches.local_file_names do 
+    if check_file_valid(animation_caches.local_file_names[i]) == true then
+        animation_caches.true_counter = animation_caches.true_counter + 1
+    end
+end
+if animation_caches.true_counter == #animation_caches.local_file_names then
 
---body
-png_open_body = file.Open("hit station/body.png","r")
-png_read_body = png_open_body:Read()
-png_open_body:Close()
-body = draw.CreateTexture(common.DecodePNG(png_read_body))
+    png_open_model = file.Open("hit station/model.png","r")
+    png_read_model = png_open_model:Read()
+    png_open_model:Close()
+    model = draw.CreateTexture(common.DecodePNG(png_read_model))
 
---right arm
-png_open_right_arm = file.Open("hit station/right arm.png","r")
-png_read_right_arm = png_open_right_arm:Read()
-png_open_right_arm:Close()
-right_arm = draw.CreateTexture(common.DecodePNG(png_read_right_arm))
+            --head
+    png_open_head = file.Open("hit station/head.png","r")
+    png_read_head = png_open_head:Read()
+    png_open_head:Close()
+    head = draw.CreateTexture(common.DecodePNG(png_read_head))
 
---left arm
-png_open_left_arm = file.Open("hit station/left arm.png","r")
-png_read_left_arm = png_open_left_arm:Read()
-png_open_left_arm:Close()
-left_arm = draw.CreateTexture(common.DecodePNG(png_read_left_arm))
+    --body
+    png_open_body = file.Open("hit station/body.png","r")
+    png_read_body = png_open_body:Read()
+    png_open_body:Close()
+    body = draw.CreateTexture(common.DecodePNG(png_read_body))
 
---legs
-png_open_legs = file.Open("hit station/legs.png","r")
-png_read_legs = png_open_legs:Read()
-png_open_legs:Close()
-legs = draw.CreateTexture(common.DecodePNG(png_read_legs))
+    --right arm
+    png_open_right_arm = file.Open("hit station/right arm.png","r")
+    png_read_right_arm = png_open_right_arm:Read()
+    png_open_right_arm:Close()
+    right_arm = draw.CreateTexture(common.DecodePNG(png_read_right_arm))
+
+    --left arm
+    png_open_left_arm = file.Open("hit station/left arm.png","r")
+    png_read_left_arm = png_open_left_arm:Read()
+    png_open_left_arm:Close()
+    left_arm = draw.CreateTexture(common.DecodePNG(png_read_left_arm))
+
+            --legs
+    png_open_legs = file.Open("hit station/legs.png","r")
+    png_read_legs = png_open_legs:Read()
+    png_open_legs:Close()
+    legs = draw.CreateTexture(common.DecodePNG(png_read_legs))
+
+else
+    for i = 0, 20, 1 do
+        print("DOWNLOAD THE MODELS")
+    end
+end
 
 
 local function visual_other()
