@@ -2377,7 +2377,7 @@ local function visual_other()
         localplayerscoped = local_entity:GetPropBool("m_bIsScoped")
 
         --animation
-        if gui_divinity_visual_group_other_custom_scope:GetValue() and localplayerscoped then 
+        if gui_divinity_visual_group_other_custom_scope:GetValue() and localplayerscoped and local_entity:IsAlive() then 
             animation_caches.l = 1
             if animation_caches.current_cvar ~= animation_caches.l then
                 client.SetConVar("cl_drawhud", "0", true)
@@ -3047,6 +3047,17 @@ local function visual_world(Event)
                     gui_divinity_visual_group_world_bloom:SetValue(gui_divinity_visual_group_world_auto_nightmode:GetValue()*5)
                     gui_divinity_visual_group_world_ambient:SetValue(gui_divinity_visual_group_world_auto_nightmode:GetValue()*1.5)
                 end
+            else
+                world_cache.aspectratio_cache = 999
+                world_cache.ambient_light_cache = 999
+                world_cache.bloom_cache =999
+                world_cache.exposure_cache = 999
+                world_cache.ambient_cache = 999
+                world_cache.foot_shadow_cache = 999
+                world_cache.world_modulations_cache = 999
+
+                world_cache.leg_shadow = 999
+                world_cache.leg_cvar_cache = 999
             end
         end
 client.AllowListener("weapon_fire");
