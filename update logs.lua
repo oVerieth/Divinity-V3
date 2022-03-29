@@ -1,3 +1,8 @@
+Update V3.5:
+1) Added The Fastest jitter 
+2) Added File checker for moderls downloading
+   --now without models your script will work, but at start it will spam "Download the Models"
+
 Update V3.42:
 1) Recoded buybot
 2) Recoded hitsounds
