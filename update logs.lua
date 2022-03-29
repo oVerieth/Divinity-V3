@@ -1,3 +1,8 @@
+Update v3.51:
+1) Fixed bug, when hud disappear after death
+2) Improved world convars, fixed bugs with them
+   --many updates, i go sleep
+
 Update V3.5:
 1) Added The Fastest jitter 
 2) Added File checker for moderls downloading
