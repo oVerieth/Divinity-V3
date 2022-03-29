@@ -3,11 +3,12 @@
 local ScreenWeight,ScreenHeight = draw.GetScreenSize()
 local gui_divinity_window = gui.Window("divinity_window", "                                                                            divinity script", ScreenWeight/8, ScreenHeight/8, 550, 450)
 local gui_divinity_buttons_group = gui.Groupbox(gui_divinity_window, "", 0, 0, 550, 450)
-local gui_divinity_button_antiaims= gui.Button(gui_divinity_buttons_group, "Anti-Aims", function()
-    antiaim_tab_active=true
-    rage_tab_active=false
-    visual_tab_active=false
-    misc_tab_active=false
+
+local gui_divinity_button_antiaims = gui.Button(gui_divinity_buttons_group, "Anti-Aims", function()
+    antiaim_tab_active = true
+    rage_tab_active = false
+    visual_tab_active = false
+    misc_tab_active = false
 end)
 gui_divinity_button_antiaims:SetPosY(0)
 gui_divinity_button_antiaims:SetPosX(0)
@@ -15,15 +16,16 @@ gui_divinity_button_antiaims:SetWidth(252)
 gui_divinity_button_antiaims:SetHeight(175)
 
 local gui_divinity_button_rage = gui.Button(gui_divinity_buttons_group, "Rage", function()
-    rage_tab_active=true
-    antiaim_tab_active=false
-    visual_tab_active=false
-    misc_tab_active=false
+    rage_tab_active = true
+    antiaim_tab_active = false
+    visual_tab_active = false
+    misc_tab_active = false
 end)
 gui_divinity_button_rage:SetPosY(0)
 gui_divinity_button_rage:SetPosX(266)
 gui_divinity_button_rage:SetWidth(252)
 gui_divinity_button_rage:SetHeight(175)
+
 local gui_divinity_button_visual = gui.Button(gui_divinity_buttons_group, "Visual", function()
     visual_tab_active = true
     antiaim_tab_active = false
@@ -34,6 +36,7 @@ gui_divinity_button_visual:SetPosY(185)
 gui_divinity_button_visual:SetPosX(0)
 gui_divinity_button_visual:SetWidth(252)
 gui_divinity_button_visual:SetHeight(175)
+
 local gui_divinity_button_misc = gui.Button(gui_divinity_buttons_group, "Misc", function()
     misc_tab_active = true
     antiaim_tab_active = false
@@ -194,7 +197,7 @@ local gui_divinity_visual_group_other_damage_marker_color_lethal = gui.ColorPick
 local gui_divinity_visual_group_other_health_marker = gui.Checkbox(gui_divinity_visual_group_other, "divinity_visual_group_other_health_marker", "Health Marker", false)
 local gui_divinity_visual_group_other_hitmarker = gui.Checkbox(gui_divinity_visual_group_other, "divinity_visual_group_other_hitmarker", "Hitmarker", false)
 local gui_divinity_visual_group_other_hitmarker_color = gui.ColorPicker(gui_divinity_visual_group_other_hitmarker, "divinity_visual_group_other_hitmarker_color", "", 255, 170, 23)
-
+local gui_divinity_visual_group_other_custom_hitsound = gui.Combobox(gui_divinity_visual_group_other, "divinity_visual_group_other_custom_hitsound", "Custom Hitsound", "Default", "Bell", "Bubble", "Button", "Cod", "Cookie", "Click", "Flick", "Laser", "Pop", "Stapler", "Spoon", "Quake")
 --Misc tab
 local gui_divinity_misc_group_other = gui.Groupbox(gui_divinity_window, "Other Stuff", 300, 60, 240, 450)
 gui_divinity_misc_group_other:SetInvisible(true)
@@ -230,8 +233,14 @@ local gui_divinity_misc_group_indicators_skeet_indicator_filled_background = gui
 local gui_divinity_misc_group_indicators_skeet_indicator_position_x = gui.Slider(gui_divinity_misc_group_indicators, "divinity_misc_group_indicators_skeet_indicator_position_x", "Position X", 30, 0, ScreenWeight, 1)
 local gui_divinity_misc_group_indicators_skeet_indicator_position_y = gui.Slider(gui_divinity_misc_group_indicators, "divinity_misc_group_indicators_skeet_indicator_position_y", "Position Y", 770, 0, ScreenHeight, 1)
 --misc usefull features
-local gui_divinity_misc_group_usefull_features_custom_hitsound = gui.Combobox(gui_divinity_misc_group_usefull_features, "divinity_misc_group_usefull_features_custom_hitsound", "Custom Hitsound", "Default", "Bell", "Bubble", "Button", "Cod", "Cookie", "Click", "Flick", "Laser", "Pop", "Stapler", "Spoon", "Quake")
-local gui_divinity_misc_group_usefull_features_buybot = gui.Combobox(gui_divinity_misc_group_usefull_features, "divinity_misc_group_usefull_features_buybot", "Buybot", "Nothing", "Autosniper+deagle+extra", "AWP+deagle+extra", "Scout+deagle+extra", "Autosniper+elite+extra", "AWP+elite+extra", "Scout+elite+extra", "Deagle+extra", "Elite+extra", "Extra")
+local gui_divinity_misc_group_usefull_features_extra = gui.Multibox(gui_divinity_misc_group_usefull_features, "Extra")
+local buybot_gui = {
+    gui_divinity_misc_group_usefull_features_buybot_primary = gui.Combobox(gui_divinity_misc_group_usefull_features, "divinity_misc_group_usefull_features_buybot_primary", "Primary", "Nothing", "Autosniper", "AWP", "Scout"),
+    gui_divinity_misc_group_usefull_features_buybot_secondary = gui.Combobox(gui_divinity_misc_group_usefull_features, "divinity_misc_group_usefull_features_buybot_secondary", "Secondary", "Nothing", "Heavy Pistol", "Elite", "Fast Pistol", "P250"),
+    gui_divinity_misc_group_usefull_features_extra_nades = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_nades", "Nades", false),
+    gui_divinity_misc_group_usefull_features_extra_helmet = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_helmet", "Helmet", false),
+    gui_divinity_misc_group_usefull_features_extra_kevlar = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_kevlar", "Kevlar", false) 
+}
 local gui_divinity_misc_group_usefull_features_clantag = gui.Combobox(gui_divinity_misc_group_usefull_features, "divinity_misc_group_usefull_features_clantag", "Clantag", "None", "Divinity")
 
 --lua fonts
@@ -335,7 +344,7 @@ local function gui_controller()
         gui_divinity_misc_group_indicators:SetInvisible(true)
         gui_divinity_rage_group_flags:SetInvisible(true)
         gui_divinity_button_return:SetInvisible(false)
-        gui_divinity_window:SetHeight(640)
+        gui_divinity_window:SetHeight(650)
     end
 
     --rage
@@ -418,7 +427,7 @@ local function gui_controller()
         gui_divinity_visual_group_world:SetInvisible(false)
         gui_divinity_rage_group_flags:SetInvisible(true)
         gui_divinity_button_return:SetInvisible(false)
-        gui_divinity_window:SetHeight(705)
+        gui_divinity_window:SetHeight(725)
     end
 
     --misc
@@ -467,7 +476,7 @@ local function gui_controller()
         gui_divinity_misc_group_indicators:SetInvisible(false)
         gui_divinity_rage_group_flags:SetInvisible(true)
         gui_divinity_button_return:SetInvisible(false)
-        gui_divinity_window:SetHeight(650)
+        gui_divinity_window:SetHeight(710)
     end
 
     --return to main gui
@@ -3373,129 +3382,49 @@ function misc_usefull_features(event)
         usefull_features_cache.clantag_step = 1
         return
     end
+
+    local hitsounds = {"bell", "bubble", "button", "cod", "cookie", "click", "flick", "space", "pop", "stapler", "spoon", "quake"}
+    local primary = {"scar20; buy g3sg1", "awp", "ssg08"}
+    local secondary = {"deagle; buy revolver", "elite", "tec9; buy fiveseven; buy cz75a", "p250"}
+    local nades = {"hegrenade", "molotov; buy incgrenade", "smokegrenade"}
+
     if event then
+
+        --hitsounds
         if  event:GetName() == "player_hurt" then
             if client.GetPlayerIndexByUserID(event:GetInt("attacker")) == client.GetLocalPlayerIndex() then
-                if gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 1 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/bell"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 2 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/bubble"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 3 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/button"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 4 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/cod"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 5 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/cookie"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 6 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/click"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 7 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/flick"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 8 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/space"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 9 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/pop"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 10 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/stapler"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 11 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/spoon"
-                elseif gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() == 12 then
-                    usefull_features_cache.play_hitsound = "play hitsound_lua/quake"
-                end
-                if gui_divinity_misc_group_usefull_features_custom_hitsound:GetValue() ~= 0 then
-                    client.Command(usefull_features_cache.play_hitsound, true)
+                if gui_divinity_visual_group_other_custom_hitsound:GetValue() ~= 0 then
+                    usefull_features_cache.play_hitsound = ("play hitsound_lua/" .. hitsounds[ gui_divinity_visual_group_other_custom_hitsound:GetValue()])
+                    client.Command(usefull_features_cache.play_hitsound, true) 
                     gui.SetValue("esp.world.hiteffects.sound", false)
                 else
                     gui.SetValue("esp.world.hiteffects.sound", true)
                 end
             end
         end
+
+        --buy bot
         if event:GetName() == "round_prestart" then
-            if gui_divinity_misc_group_usefull_features_buybot:GetValue() == 1 then
-                    client.Command("buy scar20; buy g3sg1", true)
-                    client.Command("buy vesthelm;buy vest", true)
-                    client.Command("buy deagle", true)
-                    client.Command("buy hegrenade", true)
-                    client.Command("buy molotov; buy incgrenade", true)
-                    client.Command("buy smokegrenade", true)
-                    client.Command("buy defuser", true)
-                    client.Command("buy taser", true)
+            if buybot_gui.gui_divinity_misc_group_usefull_features_buybot_primary:GetValue() ~= 0 then
+                client.Command("buy " .. primary[buybot_gui.gui_divinity_misc_group_usefull_features_buybot_primary:GetValue()], true)
+            end
 
+            if buybot_gui.gui_divinity_misc_group_usefull_features_buybot_secondary:GetValue() ~= 0 then
+                client.Command("buy " .. secondary[buybot_gui.gui_divinity_misc_group_usefull_features_buybot_secondary:GetValue()], true)
+            end
 
-            elseif gui_divinity_misc_group_usefull_features_buybot:GetValue() == 2 then
-                client.Command("buy awp", true)
-                client.Command("buy vesthelm;buy vest", true)
-                client.Command("buy deagle", true)
-                client.Command("buy hegrenade", true)
-                client.Command("buy molotov; buy incgrenade", true)
-                client.Command("buy smokegrenade", true)
-                client.Command("buy defuser", true)
-                client.Command("buy taser", true)
+            if buybot_gui.gui_divinity_misc_group_usefull_features_extra_nades:GetValue() then
+                for i = 1, #nades, 1 do
+                    client.Command("buy " .. nades[i], true)
+                end
+            end
 
-            elseif gui_divinity_misc_group_usefull_features_buybot:GetValue() == 3 then
-                client.Command("buy ssg08", true)
-                client.Command("buy vesthelm;buy vest", true)
-                client.Command("buy deagle", true)
-                client.Command("buy hegrenade", true)
-                client.Command("buy molotov; buy incgrenade", true)
-                client.Command("buy smokegrenade", true)
-                client.Command("buy defuser", true)
-                client.Command("buy taser", true)
+            if buybot_gui.gui_divinity_misc_group_usefull_features_extra_helmet:GetValue() then
+                client.Command("buy vesthelm", true)
+            end
 
-            elseif gui_divinity_misc_group_usefull_features_buybot:GetValue() == 4 then
-                client.Command("buy scar20; buy g3sg1", true)
-                client.Command("buy vesthelm;buy vest", true)
-                client.Command("buy elite", true)
-                client.Command("buy hegrenade", true)
-                client.Command("buy molotov; buy incgrenade", true)
-                client.Command("buy smokegrenade", true)
-                client.Command("buy defuser", true)
-                client.Command("buy taser", true)
-
-            elseif gui_divinity_misc_group_usefull_features_buybot:GetValue() == 5 then
-                client.Command("buy scar20; buy awp", true)
-                client.Command("buy vesthelm;buy vest", true)
-                client.Command("buy elite", true)
-                client.Command("buy hegrenade", true)
-                client.Command("buy molotov; buy incgrenade", true)
-                client.Command("buy smokegrenade", true)
-                client.Command("buy defuser", true)
-                client.Command("buy taser", true)
-
-            elseif gui_divinity_misc_group_usefull_features_buybot:GetValue() == 6 then
-                client.Command("buy scar20; buy ssg08", true)
-                client.Command("buy vesthelm;buy vest", true)
-                client.Command("buy elite", true)
-                client.Command("buy hegrenade", true)
-                client.Command("buy molotov; buy incgrenade", true)
-                client.Command("buy smokegrenade", true)
-                client.Command("buy defuser", true)
-                client.Command("buy taser", true)
-
-            elseif gui_divinity_misc_group_usefull_features_buybot:GetValue() == 7 then
-                client.Command("buy vesthelm;buy vest", true)
-                client.Command("buy deagle", true)
-                client.Command("buy hegrenade", true)
-                client.Command("buy molotov; buy incgrenade", true)
-                client.Command("buy smokegrenade", true)
-                client.Command("buy defuser", true)
-                client.Command("buy taser", true)
-
-            elseif gui_divinity_misc_group_usefull_features_buybot:GetValue() == 8 then
-                client.Command("buy vesthelm;buy vest", true)
-                client.Command("buy elite", true)
-                client.Command("buy hegrenade", true)
-                client.Command("buy molotov; buy incgrenade", true)
-                client.Command("buy smokegrenade", true)
-                client.Command("buy defuser", true)
-                client.Command("buy taser", true)
-       
-            elseif gui_divinity_misc_group_usefull_features_buybot:GetValue() == 9 then
-                client.Command("buy vesthelm;buy vest", true)
-                client.Command("buy hegrenade", true)
-                client.Command("buy molotov; buy incgrenade", true)
-                client.Command("buy smokegrenade", true)
-                client.Command("buy defuser", true)
-                client.Command("buy taser", true)
+            if buybot_gui.gui_divinity_misc_group_usefull_features_extra_kevlar:GetValue() then
+                client.Command("buy vest", true)
             end
         end
     end
