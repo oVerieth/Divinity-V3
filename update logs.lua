@@ -1,3 +1,7 @@
+Update v3.52:
+1) Added taser to the buybot
+2) Fixed error with the fastest jitter
+
 Update v3.51:
 1) Fixed bug, when hud disappear after death
 2) Improved world convars, fixed bugs with them
