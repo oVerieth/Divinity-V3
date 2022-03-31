@@ -1,3 +1,8 @@
+Update v3.53:
+1) Added function to draw not fully filled circles
+2) Added new type of recharge to skeat indicators
+3) Now skeat indicators change position by mouse too (position to click is desync side indicator)
+
 Update v3.52:
 1) Added taser to the buybot
 2) Fixed error with the fastest jitter
