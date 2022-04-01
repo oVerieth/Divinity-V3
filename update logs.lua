@@ -1,3 +1,6 @@
+Update v3.55:
+1) Some desing improvements in new recharge indicator
+
 Update v3.54:
 1) Added defuse kit to autobuy
 2) Fixed eerors with the skeat indicators
