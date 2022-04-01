@@ -3217,7 +3217,7 @@ function misc_indicators()
                     draw.Color(240,10,0,255)
                     draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-30,"DT")
                     draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-31,"DT")
-                    draw.Segment(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() + doubletap_weight + 10, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - 22, current_doubletap_time * 100, 5, 7, -1, {240,10,0,255})
+                    draw.Segment(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() + doubletap_weight + 5, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - 25, current_doubletap_time * 100, 3, 4, -1, {240,10,0,255})
                 else
                     if gui_divinity_misc_group_indicators_skeet_indicator_filled_background:GetValue() and not gui_divinity_misc_group_indicators_skeet_indicator_new_recharge:GetValue() then
                         draw.Color(0,0,0,255)
@@ -3238,7 +3238,7 @@ function misc_indicators()
                     draw.Color(gui_divinity_misc_group_indicators_skeet_indicator_color:GetValue())
                     draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-30,"DT")
                     draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-31,"DT")
-                    draw.Segment(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() + doubletap_weight + 10,invisible_gui. gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - 22, 100, 5, 7, -1, {gui_divinity_misc_group_indicators_skeet_indicator_color:GetValue()})
+                    draw.Segment(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() + doubletap_weight + 5,invisible_gui. gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - 25, 100, 3, 4, -1, {gui_divinity_misc_group_indicators_skeet_indicator_color:GetValue()})
                     indicators_cache.static_curtime_doubletap = globals.CurTime()
                 else
                     if gui_divinity_misc_group_indicators_skeet_indicator_filled_background:GetValue() and not gui_divinity_misc_group_indicators_skeet_indicator_new_recharge:GetValue() then
@@ -3266,7 +3266,7 @@ function misc_indicators()
                     draw.Color(240,10,0,255)
                     draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-60,"HS")
                     draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-61,"HS")
-                    draw.Segment(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() + hideshots_weight + 10, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - 52, current_hideshots_time * 100, 5, 7, -1, {240,10,0,255})
+                    draw.Segment(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() + hideshots_weight + 5, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - 55, current_hideshots_time * 100, 3, 4, -1, {240,10,0,255})
                 else
                     if gui_divinity_misc_group_indicators_skeet_indicator_filled_background:GetValue() then
                         draw.Color(0,0,0,255)
@@ -3287,7 +3287,7 @@ function misc_indicators()
                     draw.Color(gui_divinity_misc_group_indicators_skeet_indicator_color:GetValue())
                     draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-60,"HS")
                     draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-61,"HS")
-                    draw.Segment(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() + hideshots_weight + 10, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - 52, 100, 5, 7, -1, {gui_divinity_misc_group_indicators_skeet_indicator_color:GetValue()})
+                    draw.Segment(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() + hideshots_weight + 5, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - 55, 100, 3, 4, -1, {gui_divinity_misc_group_indicators_skeet_indicator_color:GetValue()})
                     indicators_cache.static_curtime_hideshots = globals.CurTime()  
                 else
                     if gui_divinity_misc_group_indicators_skeet_indicator_filled_background:GetValue() then
