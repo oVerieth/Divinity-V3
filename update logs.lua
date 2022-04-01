@@ -1,3 +1,7 @@
+Update v3.54:
+1) Added defuse kit to autobuy
+2) Fixed eerors with the skeat indicators
+
 Update v3.53:
 1) Added function to draw not fully filled circles
 2) Added new type of recharge to skeat indicators
