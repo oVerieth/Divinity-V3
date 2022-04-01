@@ -229,7 +229,8 @@ local buybot_gui = {
     gui_divinity_misc_group_usefull_features_extra_nades = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_nades", "Nades", false),
     gui_divinity_misc_group_usefull_features_extra_helmet = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_helmet", "Helmet", false),
     gui_divinity_misc_group_usefull_features_extra_kevlar = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_kevlar", "Kevlar", false),
-    gui_divinity_misc_group_usefull_features_extra_zeus = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_zeus", "Zeus", false) 
+    gui_divinity_misc_group_usefull_features_extra_zeus = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_zeus", "Zeus", false),
+    gui_divinity_misc_group_usefull_features_extra_defuser = gui.Checkbox(gui_divinity_misc_group_usefull_features_extra, "divinity_misc_group_usefull_features_extra_defuser", "Defuse Kit", false) 
 }
 local gui_divinity_misc_group_usefull_features_clantag = gui.Combobox(gui_divinity_misc_group_usefull_features, "divinity_misc_group_usefull_features_clantag", "Clantag", "None", "Divinity")
 
@@ -3222,7 +3223,7 @@ function misc_indicators()
                         draw.Color(0,0,0,255)
                         draw.FilledRect(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-23+doubletap_height,invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+doubletap_weight, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-26+doubletap_height)
                         draw.Color(240,10,0,255)
-                        draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-30,"DT")
+                        draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-30,"DT")
                         draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-31,"DT")
                         draw.FilledRect(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-23+doubletap_height,invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+(doubletap_weight*current_doubletap_time), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-26+doubletap_height)
                     else
@@ -3273,7 +3274,7 @@ function misc_indicators()
                         draw.Color(240,10,0,255)
                         draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-60,"HS")
                         draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-61,"HS")
-                        draw.FilledRect(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-53+hideshots_height, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+(hideshots_weight*current_hideshots_time), gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-56+hideshots_height)
+                        draw.FilledRect(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-53+hideshots_height, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+(hideshots_weight*current_hideshots_time), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-56+hideshots_height)
                     else
                         draw.Color(240,10,0,255)
                         draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-60,"HS")
@@ -3330,7 +3331,7 @@ function misc_indicators()
             draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+72, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()+60, gui.GetValue("rbot.accuracy.weapon.zeus.mindmg"))
             draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+71, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()+59, gui.GetValue("rbot.accuracy.weapon.zeus.mindmg"))
             draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+72, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()+90, gui.GetValue("rbot.accuracy.weapon.zeus.hitchance"))
-            draw.TextShadow(invisible_gui.ui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+71, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()+89, gui.GetValue("rbot.accuracy.weapon.zeus.hitchance"))
+            draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+71, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()+89, gui.GetValue("rbot.accuracy.weapon.zeus.hitchance"))
         else 
             draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+72, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()+60, gui.GetValue("rbot.accuracy.weapon."..weaponclass..".mindmg"))
             draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+71, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()+59, gui.GetValue("rbot.accuracy.weapon."..weaponclass..".mindmg"))
@@ -3597,6 +3598,10 @@ function misc_usefull_features(event)
 
             if buybot_gui.gui_divinity_misc_group_usefull_features_extra_zeus:GetValue() then
                 client.Command("buy taser", true)
+            end
+
+            if buybot_gui.gui_divinity_misc_group_usefull_features_extra_defuser:GetValue() then
+                client.Command("buy defuser", true)
             end
         end
     end
