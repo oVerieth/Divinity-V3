@@ -111,7 +111,7 @@ local gui_divinity_antiaim_group_binds_manualbackkey = gui.Keybox(gui_divinity_a
 local gui_divinity_antiaim_group_binds_manualrightkey = gui.Keybox(gui_divinity_antiaim_group_binds, "divinity_antiaim_group_binds_manualrightkey", "Manual Right Key", 67)
 --anti-aim misc
 local gui_divinity_antiaim_group_misc_anti_bruteforce = gui.Combobox(gui_divinity_antiaim_group_misc, "divinity_antiaim_group_misc_anti_bruteforce", "Anti-Bruteforce", "None", "On Local Shot", "On Enemy Shot", "Both")
-local gui_divinity_antiaim_group_misc_legitantiaim = gui.Checkbox(gui_divinity_antiaim_group_misc, "divinity_antiaim_group_misc_legitantiaim", "Enable Legit Anti-Aims", false)
+local gui_divinity_antiaim_group_misc_legitantiaim = gui.Combobox(gui_divinity_antiaim_group_misc, "divinity_antiaim_group_misc_legitantiaim", "Legit Anti-Aims", "Disabled", "Override Jitter", "Clear Yaw")
 local gui_divinity_antiaim_group_misc_freestand = gui.Checkbox(gui_divinity_antiaim_group_misc, "divinity_antiaim_group_misc_freestand", "Enable Freestand", false)
 local gui_divinity_antiaim_group_misc_at_tartget = gui.Checkbox(gui_divinity_antiaim_group_misc, "divinity_antiaim_group_misc_at_tartget", "At Target", false)
 local gui_divinity_antiaim_group_misc_standvelocitythreshold = gui.Slider(gui_divinity_antiaim_group_misc, "divinity_antiaim_group_misc_standvelocitythreshold", "Stand Velocity Threshold", 2, 2, 250)
@@ -365,7 +365,7 @@ local function gui_controller()
         gui_divinity_misc_group_indicators:SetInvisible(true)
         gui_divinity_rage_group_flags:SetInvisible(true)
         gui_divinity_button_return:SetInvisible(false)
-        gui_divinity_window:SetHeight(650)
+        gui_divinity_window:SetHeight(665)
     end
 
     --rage
@@ -1615,13 +1615,22 @@ local function anti_aim_binds()
     end
 
     --new legit aa
-    if gui_divinity_antiaim_group_misc_legitantiaim:GetValue() then
+    if gui_divinity_antiaim_group_misc_legitantiaim:GetValue() > 0 then
         disableconditiononuse:SetValue(false)
-        local legityaw = ChangeYaw(0)
         manual_right = 0
         manual_back = 0
         manual_left = 0
-        gui.SetValue("rbot.antiaim.base", legityaw)
+
+        if gui_divinity_antiaim_group_misc_legitantiaim:GetValue() == 1 then
+            local legityaw = ChangeYaw(jitter_yaw - 180)
+            gui.SetValue("rbot.antiaim.base", legityaw)
+        end
+        
+        if gui_divinity_antiaim_group_misc_legitantiaim:GetValue() == 2 then
+            local legityaw = ChangeYaw(0)
+            gui.SetValue("rbot.antiaim.base", legityaw)
+        end
+
         gui.SetValue("rbot.antiaim.advanced.pitch", 0)
         gui.SetValue("rbot.antiaim.advanced.autodir.targets", false)
         gui.SetValue("rbot.antiaim.advanced.autodir.edges", false)
@@ -1630,7 +1639,7 @@ local function anti_aim_binds()
     end
 
     --freestand
-    if gui_divinity_antiaim_group_misc_freestand:GetValue() and manual_back == 0 and manual_right == 0 and manual_left == 0 and not gui_divinity_antiaim_group_misc_legitantiaim:GetValue() then
+    if gui_divinity_antiaim_group_misc_freestand:GetValue() and manual_back == 0 and manual_right == 0 and manual_left == 0 and gui_divinity_antiaim_group_misc_legitantiaim:GetValue() == 0 then
         gui.SetValue("rbot.antiaim.advanced.autodir.edges", true)
         gui.SetValue("rbot.antiaim.advanced.autodir.targets", false)
         gui.SetValue("rbot.antiaim.right", -160)
@@ -2286,7 +2295,7 @@ local function visual_other()
 
         if gui.GetValue("esp.local.thirdperson") then
 
-            draw.Color(255, 255, 255, 255)
+            draw.Color(255, 255, 255, animation_caches.tp_a * 17)
             draw.SetFont(fonts.divinity_font)
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 5, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + animation_caches.sw_a + animation_caches.fd_a + animation_caches.hs_a + animation_caches.dt_a + (tp_y / 2), "Thirdperson")
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 155 - tg_x, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + animation_caches.sw_a + animation_caches.fd_a + animation_caches.hs_a + animation_caches.dt_a + (tp_y / 2), "[toggled]")
@@ -2302,7 +2311,7 @@ local function visual_other()
 
         if gui.GetValue("rbot.accuracy.movement.slowkey") ~= 0 and input.IsButtonDown(gui.GetValue("rbot.accuracy.movement.slowkey")) then
 
-            draw.Color(255, 255, 255, 255)
+            draw.Color(255, 255, 255, animation_caches.sw_a * 17)
             draw.SetFont(fonts.divinity_font)
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 5, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + animation_caches.dt_a + animation_caches.hs_a + animation_caches.fd_a + (sw_y / 2), "Slow walk")
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 155 - tg_x, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + animation_caches.dt_a + animation_caches.hs_a + animation_caches.fd_a + (sw_y / 2), "[holding]")
@@ -2318,7 +2327,7 @@ local function visual_other()
 
         if FdIsActive then
 
-            draw.Color(255, 255, 255, 255)
+            draw.Color(255, 255, 255, animation_caches.fd_a * 17)
             draw.SetFont(fonts.divinity_font)
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 5, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + animation_caches.dt_a + animation_caches.hs_a + (fd_y / 2), "Fake duck")
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 155 - tg_x, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + animation_caches.dt_a + animation_caches.hs_a + (fd_y / 2), "[holding]")
@@ -2334,7 +2343,7 @@ local function visual_other()
 
         if hideshotson then
 
-            draw.Color(255, 255, 255, 255)
+            draw.Color(255, 255, 255, animation_caches.hs_a * 17)
             draw.SetFont(fonts.divinity_font)
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 5, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + animation_caches.dt_a + (hs_y / 2), "Hide shots")
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 155 - tg_x, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + animation_caches.dt_a + (hs_y / 2), "[toggled]")
@@ -2350,7 +2359,7 @@ local function visual_other()
 
         if DtIsActive == true then
 
-            draw.Color(255, 255, 255, 255)
+            draw.Color(255, 255, 255, animation_caches.dt_a * 17)
             draw.SetFont(fonts.divinity_font)
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 5, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + (dt_y / 2), "Double shot")
             draw.Text(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() + 155 - tg_x, invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() + 25 + (dt_y / 2), "[toggled]")
