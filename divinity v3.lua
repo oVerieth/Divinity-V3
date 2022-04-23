@@ -88,13 +88,13 @@ local gui_divinity_antiaim_group_main_yaw_standing_left = gui.Slider(gui_divinit
 local gui_divinity_antiaim_group_main_yaw_slowwalking_left = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yaw_slowwalking_left", "Yaw Angle Left", 0, -180, 180, 1)
 local gui_divinity_antiaim_group_main_yaw_moving_left = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yaw_moving_left", "Yaw Angle Left", 0, -180, 180, 1)
 local gui_divinity_antiaim_group_main_yaw_inair_left = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yaw_inair_left", "Yaw Angle Left", 0, -180, 180, 1)
-local gui_divinity_antiaim_group_main_yawmodifier_standing = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_standing", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest")
+local gui_divinity_antiaim_group_main_yawmodifier_standing = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_standing", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest", "Tank gen2")
 gui_divinity_antiaim_group_main_yawmodifier_standing:SetDescription("Do not use with jitter desync")
-local gui_divinity_antiaim_group_main_yawmodifier_slowwalking = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_slowwalking", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest")
+local gui_divinity_antiaim_group_main_yawmodifier_slowwalking = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_slowwalking", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest", "Tank gen2")
 gui_divinity_antiaim_group_main_yawmodifier_slowwalking:SetDescription("Do not use with jitter desync")
-local gui_divinity_antiaim_group_main_yawmodifier_moving = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_moving", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest")
+local gui_divinity_antiaim_group_main_yawmodifier_moving = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_moving", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest", "Tank gen2")
 gui_divinity_antiaim_group_main_yawmodifier_moving:SetDescription("Do not use with jitter desync")
-local gui_divinity_antiaim_group_main_yawmodifier_inair = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_inair", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest")
+local gui_divinity_antiaim_group_main_yawmodifier_inair = gui.Combobox(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifier_inair", "Yaw Modifier", "Static", "Center Jitter", "Random Jitter", "Speenbot", "Rotation", "Fake flick", "Custom Fake-Flick", "Tank Jitter", "The Fastest", "Tank gen2")
 gui_divinity_antiaim_group_main_yawmodifier_inair:SetDescription("Do not use with jitter desync")
 local gui_divinity_antiaim_group_main_yawmodifierrange_standing = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifierrange_standing", "Yaw Modifier Range", 0, 0, 180, 1)
 local gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking = gui.Slider(gui_divinity_antiaim_group_main,"divinity_antiaim_group_main_yawmodifierrange_slowwalking", "Yaw Modifier Range", 0, 0, 180, 1)
@@ -121,7 +121,7 @@ local gui_divinity_rage_group_tickbase = gui.Groupbox(gui_divinity_window, "Tick
 gui_divinity_rage_group_tickbase:SetInvisible(true)
 local gui_divinity_rage_group_other = gui.Groupbox(gui_divinity_window, "Other Stuff", 300, 60, 240, 450)
 gui_divinity_rage_group_other:SetInvisible(true)
-local gui_divinity_rage_group_flags = gui.Groupbox(gui_divinity_window, "Flags", 10, 383, 520, 450)
+local gui_divinity_rage_group_flags = gui.Groupbox(gui_divinity_window, "Flags", 10, 413, 520, 450)
 gui_divinity_rage_group_flags:SetInvisible(true)
 --rage tickbase
 local gui_divinity_rage_group_tickbase_sv_maxusrcmdprocessticks_fakelags = gui.Slider(gui_divinity_rage_group_tickbase, "divinity_rage_group_tickbase_sv_maxusrcmdproccesticks_fakelags", "Fakelags sv_maxusrcmdproccesticks", 16, 3, 64, 1)
@@ -130,6 +130,7 @@ local gui_divinity_rage_group_tickbase_sv_maxusrcmdprocessticks_exploit = gui.Sl
 local gui_divinity_rage_group_tickbase_anti_defensive = gui.Checkbox(gui_divinity_rage_group_tickbase, "divinity_rage_group_tickbase_anti_defensive", "Enable Anti-Defensive", false)
 local gui_divinity_rage_group_tickbase_standby_choke = gui.Checkbox(gui_divinity_rage_group_tickbase, "divinity_rage_group_tickbase_standby_choke", "Enable Standby Choke", false)
 local gui_divinity_rage_group_tickbase_standby_choke_fakelag_slider = gui.Slider(gui_divinity_rage_group_tickbase, "divinity_rage_group_tickbase_standby_choke_fakelag_slider", "Fakelag On Doubletap", 0, 0, 10, 1)
+local gui_divinity_rage_group_tickbase_auto_fakelag = gui.Checkbox(gui_divinity_rage_group_tickbase, "divinity_rage_group_tickbase_auto_fakelag", "Automatic Fakelag", false)
 --rage other
 local gui_divinity_rage_group_other_adaptive_silent = gui.Checkbox(gui_divinity_rage_group_other, "divinity_rage_group_other_adaptive_silent", "Adaptive Silent Aim", false)
 local gui_divinity_rage_group_other_adaptive_autoscope = gui.Checkbox(gui_divinity_rage_group_other, "divinity_rage_group_other_adaptive_autoscope", "Adaptive Auto-Scope (auto)", false)
@@ -138,6 +139,7 @@ local gui_divinity_rage_group_other_awp_fast_switch = gui.Checkbox(gui_divinity_
 local gui_divinity_rage_group_other_jump_scout = gui.Checkbox(gui_divinity_rage_group_other, "divinity_rage_group_other_jump_scout", "Jump Scout Fix", false)
 local gui_divinity_rage_group_other_accurate_walk = gui.Checkbox(gui_divinity_rage_group_other, "divinity_rage_group_other_accurate_walk", "Accurate Walk", false)
 local gui_divinity_rage_group_other_doubletap_peek_help = gui.Checkbox(gui_divinity_rage_group_other, "divinity_rage_group_other_doubletap_peek_help", "DT+Autopeek Help", false)
+local gui_divinity_rage_group_other_disable_lby_on_exploits = gui.Checkbox(gui_divinity_rage_group_other, "divinity_rage_group_other_disable_lby_on_exploits", "Disable LBY on exploits", false)
 --rage flags
 local gui_divinity_rage_group_flags_enemy_flags = gui.Multibox(gui_divinity_rage_group_flags, "Enemy flags")
 local gui_divinity_rage_group_flags_enemy_flags_shot = gui.Checkbox(gui_divinity_rage_group_flags_enemy_flags, "divinity_rage_group_flags_enemy_flags_shot", "Next Shot Earlier", false)
@@ -169,6 +171,7 @@ local gui_divinity_visual_group_world_ambient = gui.Slider(gui_divinity_visual_g
 local gui_divinity_visual_group_world_bloom = gui.Slider(gui_divinity_visual_group_world, "divinity_visual_group_world_bloom", "Bloom", 0, 0, 100, 1)
 local gui_divinity_visual_group_world_ambient_light = gui.ColorPicker(gui_divinity_visual_group_world, "divinity_visual_group_world_ambient_light", "Ambient Light", 0, 0, 0, 255)
 local gui_divinity_visual_group_world_auto_nightmode = gui.Slider(gui_divinity_visual_group_world, "divinity_visual_group_world_auto_nightmode", "Auto Nightmode", 0, 0, 10)
+local gui_divinity_visual_group_world_static_arms = gui.Checkbox(gui_divinity_visual_group_world, "divinity_visual_group_world_static_arms", "Static arms", false)
 --visual other
 local gui_divinity_visual_group_other_divinity_indicators = gui.Combobox(gui_divinity_visual_group_other, "divinity_visual_group_other_divinity_indicators", "Divinity Indicators", "None", "Style 1", "Style 2")
 local gui_divinity_visual_group_other_keybinds = gui.Checkbox(gui_divinity_visual_group_other, "divinity_visual_group_other_divinity_keybinds", "Divinity Keybinds", false)
@@ -255,7 +258,8 @@ local fonts = {
     divinity_font_4 = draw.CreateFont("untitled-font-1", 16),
     skeet_indicator_font = draw.CreateFont("Verdana", 26, 800),
     watermark_font = draw.CreateFont("Verdana", 14, 750),
-    damage_font = draw.CreateFont("Verdana", 13, 700)
+    damage_font = draw.CreateFont("Verdana", 13, 700),
+    welcome_font = draw.CreateFont("Verdana", 35, 800)
 }
 
 print(" = = = = = = = = = = = = = = = =")
@@ -392,7 +396,7 @@ local function gui_controller()
         gui_divinity_visual_group_world:SetInvisible(true)
         gui_divinity_rage_group_flags:SetInvisible(false)
         gui_divinity_button_return:SetInvisible(false)
-        gui_divinity_window:SetHeight(525)
+        gui_divinity_window:SetHeight(555)
     end
 
     --visual
@@ -444,7 +448,7 @@ local function gui_controller()
         gui_divinity_visual_group_world:SetInvisible(false)
         gui_divinity_rage_group_flags:SetInvisible(true)
         gui_divinity_button_return:SetInvisible(false)
-        gui_divinity_window:SetHeight(725)
+        gui_divinity_window:SetHeight(735)
     end
 
     --misc
@@ -707,7 +711,7 @@ local function conditions()
         localplayerslowwalking = false
         localplayermoving = false
         localplayerinair = false
-    elseif localplayervelocity > gui_divinity_antiaim_group_misc_standvelocitythreshold:GetValue() and gui.GetValue("rbot.accuracy.movement.slowkey") ~= 0 and not input.IsButtonDown(slowwalkkey) and not (inaircheck == false or (input.IsButtonDown(32) and input.IsButtonDown(17))) and not gui_divinity_antiaim_group_main_set_standing_as_general:GetValue() then
+    elseif localplayervelocity > gui_divinity_antiaim_group_misc_standvelocitythreshold:GetValue() and ((gui.GetValue("rbot.accuracy.movement.slowkey") ~= 0 and not input.IsButtonDown(slowwalkkey)) or gui.GetValue("rbot.accuracy.movement.slowkey") == 0)  and not (inaircheck == false or (input.IsButtonDown(32) and input.IsButtonDown(17))) and not gui_divinity_antiaim_group_main_set_standing_as_general:GetValue() then
         localplayerstanding = false
         localplayerslowwalking = false
         localplayermoving = true
@@ -767,7 +771,7 @@ local function conditions()
        ForceFakelagIsActive = true
     end
 end
-callbacks.Register("CreateMove", conditions)
+callbacks.Register("Draw", conditions)
 
 --allow change your antiaim.base
 function ChangeYaw(yaw)
@@ -1269,6 +1273,70 @@ local function anti_aim_main_yaw( ... )
             end
         end
     end
+
+    --tank gen2
+    if gui.GetValue("rbot.antiaim.base.rotation") < 0 then
+        if localplayerstanding == true and gui_divinity_antiaim_group_main_yawmodifier_standing:GetValue() == 9 then
+            if globals.TickCount()%gui_divinity_antiaim_group_main_yawmodifierspeed_standing:GetValue() == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_standing_right:GetValue()-(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue())/2))
+            end
+            if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_standing:GetValue()*2) == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_standing_right:GetValue()+(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue())/2))
+            end
+        elseif localplayerslowwalking == true and gui_divinity_antiaim_group_main_yawmodifier_slowwalking:GetValue() == 9 then
+            if globals.TickCount()%gui_divinity_antiaim_group_main_yawmodifierspeed_slowwalking:GetValue() == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_slowwalking_right:GetValue()-(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue())/2))
+            end
+            if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_slowwalking:GetValue()*2) == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_slowwalking_right:GetValue()+(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue())/2))
+            end
+        elseif localplayermoving == true and gui_divinity_antiaim_group_main_yawmodifier_moving:GetValue() == 9 then
+            if globals.TickCount()%gui_divinity_antiaim_group_main_yawmodifierspeed_moving:GetValue() == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_moving_right:GetValue()-(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue())/2))
+            end
+            if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_moving:GetValue()*2) == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_moving_right:GetValue()+(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue())/2))
+            end
+        elseif localplayerinair == true and gui_divinity_antiaim_group_main_yawmodifier_inair:GetValue() == 9 then
+            if globals.TickCount()%gui_divinity_antiaim_group_main_yawmodifierspeed_inair:GetValue() == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_inair_right:GetValue()-(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue())/2))
+            end
+            if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_inair:GetValue()*2) == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_inair_right:GetValue()+(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue())/2))
+            end
+        end
+    elseif gui.GetValue("rbot.antiaim.base.rotation") >= 0 then
+        if localplayerstanding == true and gui_divinity_antiaim_group_main_yawmodifier_standing:GetValue() == 9 then
+            if globals.TickCount()%gui_divinity_antiaim_group_main_yawmodifierspeed_standing:GetValue() == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_standing_left:GetValue()-(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue())/2))
+            end
+            if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_standing:GetValue()*2) == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_standing_left:GetValue()+(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_standing:GetValue())/2))
+            end
+        elseif localplayerslowwalking == true and gui_divinity_antiaim_group_main_yawmodifier_slowwalking:GetValue() == 9 then
+            if globals.TickCount()%gui_divinity_antiaim_group_main_yawmodifierspeed_slowwalking:GetValue() == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_slowwalking_left:GetValue()-(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue())/2))
+            end
+            if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_slowwalking:GetValue()*2) == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_slowwalking_left:GetValue()+(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_slowwalking:GetValue())/2))
+            end
+        elseif localplayermoving == true and gui_divinity_antiaim_group_main_yawmodifier_moving:GetValue() == 9 then
+            if globals.TickCount()%gui_divinity_antiaim_group_main_yawmodifierspeed_moving:GetValue() == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_moving_left:GetValue()-(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue())/2))
+            end
+            if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_moving:GetValue()*2) == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_moving_left:GetValue()+(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_moving:GetValue())/2))
+            end
+        elseif localplayerinair == true and gui_divinity_antiaim_group_main_yawmodifier_inair:GetValue() == 9 then
+            if globals.TickCount()%gui_divinity_antiaim_group_main_yawmodifierspeed_inair:GetValue() == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_inair_left:GetValue()-(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue())/2))
+            end
+            if globals.TickCount()%(gui_divinity_antiaim_group_main_yawmodifierspeed_inair:GetValue()*2) == 0 then
+                jitter_yaw = ChangeYaw(180-gui_divinity_antiaim_group_main_yaw_inair_left:GetValue()+(math.random(gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue()/2 - math.random(0,10), gui_divinity_antiaim_group_main_yawmodifierrange_inair:GetValue())/2))
+            end
+        end
+    end
+
     gui.SetValue("rbot.antiaim.base", jitter_yaw)
 end  
 callbacks.Register("CreateMove", anti_aim_main_yaw)
@@ -1413,9 +1481,9 @@ local function rollaa(cmd)
     end
     if (localplayerstanding == true and gui_divinity_antiaim_group_main_desynctype_standing:GetValue() == 3) or (localplayerslowwalking == true and gui_divinity_antiaim_group_main_desynctype_slowwalking:GetValue() == 3) then
         if gui.GetValue('rbot.antiaim.base.rotation') < 0 then
-            cmd.viewangles = EulerAngles(cmd.viewangles.x, cmd.viewangles.y, -41)
+            cmd.viewangles = EulerAngles(cmd.viewangles.x, cmd.viewangles.y, 41)
         elseif gui.GetValue('rbot.antiaim.base.rotation') >= 0 then
-            cmd.viewangles = EulerAngles(cmd.viewangles.x, cmd.viewangles.y, 37)
+            cmd.viewangles = EulerAngles(cmd.viewangles.x, cmd.viewangles.y, -37)
         end
     end
 end
@@ -1454,10 +1522,12 @@ local function anti_aim_binds()
     end
 
     --disable lby on exploit
-    if ExploitIsActive == true then
-        gui.SetValue("rbot.antiaim.advanced.antialign", 1)
-    elseif ForceFakelagIsActive == true then
-        gui.SetValue("rbot.antiaim.advanced.antialign", 0)
+    if gui_divinity_rage_group_other_disable_lby_on_exploits:GetValue() then
+        if ExploitIsActive == true then
+            gui.SetValue("rbot.antiaim.advanced.antialign", 1)
+        elseif ForceFakelagIsActive == true then
+            gui.SetValue("rbot.antiaim.advanced.antialign", 0)
+        end
     end
 
     --aa inverter
@@ -1509,6 +1579,14 @@ local function anti_aim_binds()
     if gui_divinity_antiaim_group_binds_manualbackkey:GetValue() ~= 0 and input.IsButtonPressed(gui_divinity_antiaim_group_binds_manualbackkey:GetValue()) then
         manual_back = manual_back == 0 and 1 or 0
         manual_right = 0
+        manual_left = 0
+    end
+
+    if gui_divinity_antiaim_group_binds_manualrightkey:GetValue() == 0 then
+        manual_right = 0 
+    elseif gui_divinity_antiaim_group_binds_manualbackkey:GetValue() == 0 then
+        manual_back = 0
+    elseif gui_divinity_antiaim_group_binds_manualleftkey:GetValue() == 0 then
         manual_left = 0
     end
 
@@ -1574,6 +1652,15 @@ local function rage_tickbase()
         gui_sv_maxusrcmdprocessticks_slider:SetValue(gui_divinity_rage_group_tickbase_sv_maxusrcmdprocessticks_fakeduck:GetValue())
     elseif ExploitIsActive == true then
         gui_sv_maxusrcmdprocessticks_slider:SetValue(gui_divinity_rage_group_tickbase_sv_maxusrcmdprocessticks_exploit:GetValue())
+    end
+
+    --auto fakelags
+    if gui_divinity_rage_group_tickbase_auto_fakelag:GetValue() then
+        if localplayermoving == true then
+            gui.SetValue("misc.fakelag.type", 3)
+        else
+            gui.SetValue("misc.fakelag.type", 1)
+        end
     end
 
     --anti-defensive
@@ -1673,7 +1760,7 @@ local function rage_other(GameEvent)
     if gui_divinity_rage_group_other_jump_scout:GetValue() then
 
         --doesnt break autostrafer
-        if localplayerstanding == true or localplayermoving == true then
+        if (localplayerstanding == true) or (localplayermoving == true) then
             stand_velocity = local_entity:GetPropVector("localdata", "m_vecVelocity[0]"):Length()
         end
 
@@ -2093,6 +2180,7 @@ local function visual_other()
 
     local mouse_x, mouse_y = input.GetMousePos()
     if menu:IsActive() then 
+
         --controle keybinds position
         if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue()) <= 50) then
             invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:SetValue(mouse_x)
@@ -2100,65 +2188,36 @@ local function visual_other()
         end
 
         --controle spec. list position
-        if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue()) <= 50) then
-            invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:SetValue(mouse_x)
-            invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:SetValue(mouse_y)
+        if math.abs(invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue()) > 50 and math.abs(invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue()) > 50 then
+            if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue()) <= 50) then
+                invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:SetValue(mouse_x)
+                invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:SetValue(mouse_y)
+            end
         end
 
         --controle hit station
-        if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue()) <= 50) then
-            invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:SetValue(mouse_x)
-            invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:SetValue(mouse_y)
+        if (math.abs(invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue()) > 50) and (math.abs(invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue()) > 50) then
+            if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue()) <= 50) then
+                invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:SetValue(mouse_x)
+                invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:SetValue(mouse_y)
+            end
         end
 
         --controle watermark
-        if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue()) <= 50) then
-            invisible_gui.gui_divinity_visual_group_other_watermark_position_x:SetValue(mouse_x)
-            invisible_gui.gui_divinity_visual_group_other_watermark_position_y:SetValue(mouse_y)
+        if (math.abs(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue()) > 50) and (math.abs(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue()) > 50) and (math.abs(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue()) > 50) then
+            if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue()) <= 50) then
+                invisible_gui.gui_divinity_visual_group_other_watermark_position_x:SetValue(mouse_x)
+                invisible_gui.gui_divinity_visual_group_other_watermark_position_y:SetValue(mouse_y)
+            end
         end
 
-        --controle 
-        if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()) <= 50) then
-            invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:SetValue(mouse_x)
-            invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:SetValue(mouse_y)
+        --controle skeet indicators
+        if (math.abs(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue()) > 50) and (math.abs(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue()) > 50) and (math.abs(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue()) > 50) and (math.abs(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue() - invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue()) > 50 or math.abs(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue() - invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue()) > 50) then
+            if input.IsButtonDown(1) and (math.abs(mouse_x - invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()) <= 50 and math.abs(mouse_y - invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()) <= 50) then
+                invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:SetValue(mouse_x)
+                invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:SetValue(mouse_y)
+            end
         end
-    end
-
-    --security system
-    if invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() == invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue() and
-       invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() == invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue() then
-        invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:SetValue(invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue() - 51)
-        invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:SetValue(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() - 51)
-    end
-
-    if invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() == invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue() and
-       invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() == invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue() then
-        invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:SetValue(invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue() - 51)
-        invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:SetValue(invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() - 51)
-    end
-
-    if invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue() == invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue() and
-       invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue() == invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue() then
-        invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:SetValue(invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue() - 51)
-        invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:SetValue(invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue() - 51)
-    end
-
-    if invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() == invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() and
-       invisible_gui.gui_divinity_visual_group_other_keybinds_position_y:GetValue() == invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() then
-        invisible_gui.gui_divinity_visual_group_other_watermark_position_y:SetValue(invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() - 51)
-        invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:SetValue(invisible_gui.gui_divinity_visual_group_other_keybinds_position_x:GetValue() - 51)
-    end
-
-    if invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() == invisible_gui.gui_divinity_visual_group_other_spectator_list_position_x:GetValue() and
-       invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() == invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue() then
-        invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:SetValue(invisible_gui.gui_divinity_visual_group_other_spectator_list_position_y:GetValue() - 51)
-        invisible_gui.gui_divinity_visual_group_other_watermark_position_x:SetValue(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - 51)
-    end
-
-    if invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() == invisible_gui.gui_divinity_visual_group_other_hit_station_position_x:GetValue() and
-       invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() == invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue() then
-        invisible_gui.gui_divinity_visual_group_other_watermark_position_x:SetValue(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - 51)
-        invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:SetValue(invisible_gui.gui_divinity_visual_group_other_hit_station_position_y:GetValue() - 51)
     end
 
     local global_color_1 = {20, 20, 20}
@@ -2388,23 +2447,23 @@ local function visual_other()
         local text_2_x, text_2_y = draw.GetTextSize(text_2)
 
         draw.Color(global_color_1[1], global_color_1[2], global_color_1[3], 225)
-        draw.FilledRect(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue(), invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue(), invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() + text_1_x + 20, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() + 20)
+        draw.FilledRect(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - text_1_x - text_2_x - 40, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue(), invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - text_2_x - 20, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() + 20)
 
         draw.Color(85, 85, 85, 85)
-        draw.FilledRect(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() + text_1_x + 20, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue(), invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() + text_1_x + text_2_x + 40, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() + 20)
+        draw.FilledRect(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - text_2_x - 20, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue(), invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue(), invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() + 20)
 
         draw.Color(global_color_2[1], global_color_2[2], global_color_2[3], 255)
-        draw.Text(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() + 10, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() + 1 + (text_1_y / 2), text_1)
+        draw.Text(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - 30 - text_1_x - text_2_x, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() + 1 + (text_1_y / 2), text_1)
 
         draw.Color(255, 255, 255, 255)
-        draw.Text(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() + 30 + text_1_x, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() + 1 + (text_2_y / 2), text_2)
+        draw.Text(invisible_gui.gui_divinity_visual_group_other_watermark_position_x:GetValue() - 10 - text_2_x, invisible_gui.gui_divinity_visual_group_other_watermark_position_y:GetValue() + 1 + (text_2_y / 2), text_2)
     end
 
     --custom scope
     draw.FilledCircle(ScreenWeight/2, ScreenHeight/2, 100, 0.1)
     if gui_divinity_visual_group_other_custom_scope:GetValue() then
         local color_scope_r, color_scope_g, color_scope_b, color_scope_a = gui_divinity_visual_group_other_custom_scope_color:GetValue()
-        localplayerscoped = local_entity:GetPropBool("m_bIsScoped")
+        local localplayerscoped = local_entity:GetPropBool("m_bIsScoped")
 
         --animation
         if gui_divinity_visual_group_other_custom_scope:GetValue() and localplayerscoped and local_entity:IsAlive() then 
@@ -2975,6 +3034,9 @@ local world_cache = {
 
     leg_shadow = 999,
     leg_cvar_cache = 999,
+
+    arms_cache = 999, 
+    arms_cvar = 999,
 }
 
 --all world modulations(with cache system to improve fps)
@@ -2993,6 +3055,30 @@ local function visual_world(Event)
         world_cache.leg_shadow = 999
         world_cache.leg_cvar_cache = 999
         return
+    end
+    
+    if gui_divinity_visual_group_world_static_arms:GetValue() then
+        world_cache.arms_cvar = 1
+        if world_cache.arms_cvar ~= world_cache.arms_cache then
+            client.SetConVar("cl_bob_lower_amt", 5, true)
+            client.SetConVar("cl_bobamt_vert", 0.1000, true)
+            client.SetConVar("cl_bobamt_lat", 0.1000, true)
+            client.SetConVar("cl_bobcycle", 0.98, true)
+            client.SetConVar("cl_viewmodel_shift_right_amt", 0.25000, true)
+            client.SetConVar("cl_viewmodel_shift_left_amt", 0.5000, true)
+            world_cache.arms_cache = world_cache.arms_cvar
+        end
+    else
+        world_cache.arms_cvar = 0
+        if world_cache.arms_cvar ~= world_cache.arms_cache then
+            client.SetConVar("cl_bob_lower_amt", 19, true)
+            client.SetConVar("cl_bobamt_vert", 0.16, true)
+            client.SetConVar("cl_bobamt_lat", 0.37, true)
+            client.SetConVar("cl_bobcycle", 0.6, true)
+            client.SetConVar("cl_viewmodel_shift_right_amt", 0.75, true)
+            client.SetConVar("cl_viewmodel_shift_left_amt", 1.5, true)
+            world_cache.arms_cache = world_cache.arms_cvar
+        end
     end
 
     local TonemapController = entities.FindByClass('CEnvTonemapController')[1]
@@ -3100,7 +3186,12 @@ local indicators_cache = {
     lc_schetchik_local = false,
     lc_factor_local = false,
     old_simtime_local = 0,
-    old_delta_simtime_local = 0
+    old_delta_simtime_local = 0,
+    start_script_line = 20,
+    start_script_text = 0,
+    welcome_timer = globals.CurTime(),
+    alpha_welcome = 0,
+    frame_checker = 0
 }
 
 function math.round(exact, quantum)
@@ -3108,12 +3199,65 @@ function math.round(exact, quantum)
     return quantum * (quant + (frac > 0.5 and 1 or 0))
 end
 
+function welcome_user()
+    draw.SetFont(fonts.welcome_font)
+    local user_name = cheat.GetUserName()
+    local text_welcome_x, text_welcome_y = draw.GetTextSize("Welcome, " .. user_name) 
+    local text_good_luck_x, text_good_luck_y = draw.GetTextSize("Good Luck!") 
+
+    indicators_cache.frame_checker = indicators_cache.frame_checker + 0.5
+    --start script
+    if indicators_cache.frame_checker < 255 then
+
+        if indicators_cache.start_script_line < 250 then
+            indicators_cache.start_script_line = indicators_cache.start_script_line + 0.45
+        end
+
+        if indicators_cache.start_script_text < ScreenHeight/2 - 40 then
+            indicators_cache.start_script_text = indicators_cache.start_script_text + 1
+        end
+
+        if indicators_cache.alpha_welcome < 255 then
+            indicators_cache.alpha_welcome = indicators_cache.alpha_welcome + 0.5
+        end
+
+    elseif indicators_cache.frame_checker > 510 then
+
+        if indicators_cache.start_script_line > 20 then
+            indicators_cache.start_script_line = indicators_cache.start_script_line - 0.45
+        end
+
+        if indicators_cache.start_script_text > 0 then
+            indicators_cache.start_script_text = indicators_cache.start_script_text - 1
+        end
+
+        if indicators_cache.alpha_welcome > 0 then
+            indicators_cache.alpha_welcome = indicators_cache.alpha_welcome - 0.5
+        end
+
+        if indicators_cache.alpha_welcome <= 0 then
+            indicators_cache.alpha_welcome = 0
+        end
+    end
+
+    if indicators_cache.alpha_welcome > 0 then
+        draw.Color(255, 255, 255, indicators_cache.alpha_welcome)
+
+        draw.Text(ScreenWeight/2 - (text_welcome_x/2), indicators_cache.start_script_text, "Welcome, " .. user_name)
+        draw.Text(ScreenWeight/2 - (text_good_luck_x/2), ScreenHeight - indicators_cache.start_script_text - 25, "Good Luck!")
+        draw.GradientRect(ScreenWeight/2, ScreenHeight/2, indicators_cache.start_script_line, 3, 255, 255, 255, indicators_cache.alpha_welcome, 0, 1)
+        draw.GradientRect(ScreenWeight/2, ScreenHeight/2, indicators_cache.start_script_line, 3, 255, 255, 255, indicators_cache.alpha_welcome, 0, 0)
+    end
+end
+callbacks.Register("Draw", welcome_user)
+
 --all indicators
 function misc_indicators()
     local local_entity = entities.GetLocalPlayer()
     if not local_entity or not local_entity:IsAlive() then 
         return
     end
+
     --desync side indicator
     if gui_divinity_misc_group_indicators_desync_side_indicator:GetValue() then
         if gui.GetValue("rbot.antiaim.base.rotation") >= 0 then 
@@ -3251,8 +3395,8 @@ function misc_indicators()
                         indicators_cache.static_curtime_doubletap = globals.CurTime()
                     else
                         draw.Color(gui_divinity_misc_group_indicators_skeet_indicator_color:GetValue())
-                        draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-30,"DT")
-                        draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1,invisible_gui. gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-31,"DT")
+                        draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-30,"DT")
+                        draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1,invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-31,"DT")
                         draw.FilledRect(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-23+doubletap_height,invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+doubletap_weight, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-26+doubletap_height)
                         indicators_cache.static_curtime_doubletap = globals.CurTime()
                     end
@@ -3301,7 +3445,7 @@ function misc_indicators()
                     else
                         draw.Color(gui_divinity_misc_group_indicators_skeet_indicator_color:GetValue())
                         draw.Text(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-60,"HS")
-                        draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1, gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-61,"HS")
+                        draw.TextShadow(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()-1, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-61,"HS")
                         draw.FilledRect(invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue(), invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-53+hideshots_height, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_x:GetValue()+hideshots_weight, invisible_gui.gui_divinity_misc_group_indicators_skeet_indicator_position_y:GetValue()-56+hideshots_height)
                         indicators_cache.static_curtime_hideshots = globals.CurTime()                
                     end
@@ -3410,6 +3554,30 @@ local misc_cache = {
     viewmodel_z_cache = client.GetConVar("viewmodel_offset_z")
 }
 
+function animated_thirdperson()
+    --better  thirdperson
+    if gui_divinity_misc_group_other_better_thirdperson:GetValue() then
+        if gui_divinity_misc_group_other_better_thirdperson_enabler:GetValue() then
+            gui.SetValue("esp.local.thirdperson", true)
+            misc_cache.current_distance = misc_cache.current_distance + 5
+            if misc_cache.current_distance >= gui_divinity_misc_group_other_better_thirdperson_distance:GetValue() then
+                misc_cache.current_distance = gui_divinity_misc_group_other_better_thirdperson_distance:GetValue()
+            end
+            gui.SetValue("esp.local.thirdpersondist", misc_cache.current_distance)
+        elseif not gui_divinity_misc_group_other_better_thirdperson_enabler:GetValue() then
+            misc_cache.current_distance = misc_cache.current_distance - 5
+            if misc_cache.current_distance <= 0 then
+                misc_cache.current_distance = 0
+            end
+            gui.SetValue("esp.local.thirdpersondist", misc_cache.current_distance)
+            if gui.GetValue("esp.local.thirdpersondist") == 0 then
+                gui.SetValue("esp.local.thirdperson", false)
+            end
+        end
+    end
+end
+callbacks.Register('Draw', animated_thirdperson);
+
 --all other misc functions
 local function misc_other()
     local local_entity = entities.GetLocalPlayer()
@@ -3429,27 +3597,6 @@ local function misc_other()
         if viewmodel_in_scope_cvar ~= viewmodel_in_scope_cache then
             client.SetConVar("fov_cs_debug", 0, true)
             viewmodel_in_scope_cvar = viewmodel_in_scope_cache
-        end
-    end
-
-    --better  thirdperson
-    if gui_divinity_misc_group_other_better_thirdperson:GetValue() then
-        if gui_divinity_misc_group_other_better_thirdperson_enabler:GetValue() then
-            gui.SetValue("esp.local.thirdperson", true)
-            misc_cache.current_distance = misc_cache.current_distance + 5
-            if misc_cache.current_distance >= gui_divinity_misc_group_other_better_thirdperson_distance:GetValue() then
-                misc_cache.current_distance = gui_divinity_misc_group_other_better_thirdperson_distance:GetValue()
-            end
-            gui.SetValue("esp.local.thirdpersondist", misc_cache.current_distance)
-        elseif not gui_divinity_misc_group_other_better_thirdperson_enabler:GetValue() then
-            misc_cache.current_distance = misc_cache.current_distance - 5
-            if misc_cache.current_distance <= 0 then
-                misc_cache.current_distance = 0
-            end
-            gui.SetValue("esp.local.thirdpersondist", misc_cache.current_distance)
-            if gui.GetValue("esp.local.thirdpersondist") == 0 then
-                gui.SetValue("esp.local.thirdperson", false)
-            end
         end
     end
 
@@ -3477,7 +3624,9 @@ local function misc_other()
         end
     end
 
-    if gui_divinity_misc_group_other_force_crosshair:GetValue() and gui.GetValue("esp.other.crosshair")==false then 
+    local localplayerscoped = local_entity:GetPropBool("m_bIsScoped")
+
+    if gui_divinity_misc_group_other_force_crosshair:GetValue() and gui.GetValue("esp.other.crosshair") == false and localplayerscoped == false then 
         misc_cache.force_crosshair = 1
         if misc_cache.force_crosshair ~= misc_cache.crosshair_cvar then
             client.SetConVar("weapon_debug_spread_show", 3, true) 
