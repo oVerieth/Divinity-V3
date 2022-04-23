@@ -1584,15 +1584,20 @@ local function anti_aim_binds()
 
     if gui_divinity_antiaim_group_binds_manualrightkey:GetValue() == 0 then
         manual_right = 0 
-    elseif gui_divinity_antiaim_group_binds_manualbackkey:GetValue() == 0 then
+    end
+
+    if gui_divinity_antiaim_group_binds_manualbackkey:GetValue() == 0 then
         manual_back = 0
-    elseif gui_divinity_antiaim_group_binds_manualleftkey:GetValue() == 0 then
+    end
+
+    if gui_divinity_antiaim_group_binds_manualleftkey:GetValue() == 0 then
         manual_left = 0
     end
 
     local manual_left_yaw = ChangeYaw(90)
     local manual_right_yaw = ChangeYaw(-90)
     local manual_back_yaw = ChangeYaw(180)
+
     if manual_left == 1  then
         gui.SetValue("rbot.antiaim.base", manual_left_yaw)
         gui.SetValue("rbot.antiaim.advanced.autodir.targets", false)
