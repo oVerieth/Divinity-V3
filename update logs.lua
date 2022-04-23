@@ -1,3 +1,19 @@
+Update V3.71:
+1) Some manual aa improvements
+
+Update v3.7:
+1) Added surpise for users
+2) Fixed visual menues positioning (like keybinds, spec. list and etc.)
+
+Update v3.6:
+1) Fixed Skeet indicators
+2) Improved conditional switch
+3) Improved watermark positioning
+4) Added Tank gen2 (yaw modifier)
+5) Added disable LBY on exploits checkbox
+6) Added Automatic fakelags
+7) Added Static Arms
+
 Update v3.55:
 1) Some desing improvements in new recharge indicator
 
