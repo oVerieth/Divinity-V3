@@ -1,3 +1,7 @@
+Update V3.72:
+1) Added alpha animation for keybinds
+2) Reworked legit anti-aims
+
 Update V3.71:
 1) Some manual aa improvements
 
