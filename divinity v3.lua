@@ -3227,7 +3227,7 @@ function welcome_user()
             indicators_cache.start_script_line = indicators_cache.start_script_line + 0.45
         end
 
-        if indicators_cache.start_script_text < ScreenHeight/2 - 40 then
+        if indicators_cache.start_script_text < ScreenHeight/2 - text_good_luck_y - 5 then
             indicators_cache.start_script_text = indicators_cache.start_script_text + 1
         end
 
@@ -3259,8 +3259,8 @@ function welcome_user()
 
         draw.Text(ScreenWeight/2 - (text_welcome_x/2), indicators_cache.start_script_text, "Welcome, " .. user_name)
         draw.Text(ScreenWeight/2 - (text_good_luck_x/2), ScreenHeight - indicators_cache.start_script_text - 25, "Good Luck!")
-        draw.GradientRect(ScreenWeight/2, ScreenHeight/2, indicators_cache.start_script_line, 3, 255, 255, 255, indicators_cache.alpha_welcome, 0, 1)
-        draw.GradientRect(ScreenWeight/2, ScreenHeight/2, indicators_cache.start_script_line, 3, 255, 255, 255, indicators_cache.alpha_welcome, 0, 0)
+        draw.GradientRect(ScreenWeight/2, ScreenHeight/2, indicators_cache.start_script_line + 1, 2, 255, 255, 255, indicators_cache.alpha_welcome, 0, 1)
+        draw.GradientRect(ScreenWeight/2, ScreenHeight/2, indicators_cache.start_script_line + 1, 2, 255, 255, 255, indicators_cache.alpha_welcome, 0, 0)
     end
 end
 callbacks.Register("Draw", welcome_user)
