@@ -3691,7 +3691,7 @@ end
 callbacks.Register('Draw', misc_other);
 
 --thanks to Cheesot(clantag)
-local Clantag = ffi.cast('int(__fastcall*)(const char*, const char*)', mem.FindPattern('engine.dll', '53 56 57 8B DA 8B F9 FF 15'))
+--local Clantag = ffi.cast('int(__fastcall*)(const char*, const char*)', mem.FindPattern('engine.dll', '53 56 57 8B DA 8B F9 FF 15'))
 
 local usefull_features_cache = {
     static_clantag_time = globals.CurTime(),
@@ -3699,13 +3699,6 @@ local usefull_features_cache = {
     play_hitsound = nil,
     last_tag = nil
 }
-
-local Set_Clantag = function(tag)
-    if tag ~= usefull_features_cache.last_tag then
-        Clantag(tag, "")
-        usefull_features_cache.last_tag = tag
-    end
-end
 
 --all event functions to improve game 
 function misc_usefull_features(event)
@@ -3773,24 +3766,6 @@ function misc_usefull_features(event)
         "divinity", "divinit", "divini", "divin", "divi", "div", "di", "d", " ", "d", "di", "div", "divi", "divin", "divini", "divinit", "divinity", "divinit", "divini", "divin", "divi", "div", "di", "d", " ", "d", "di", "div", "divi", "divin", "divini", "divinit", "divinity", "divinity_", "divinity_s", "divinity_sc", "divinity_scr", "divinity_scri", "divinity_scrip", "divinity_script", "divinity_scrip", "divinity_scri",  "divinity_scr", "divinity_sc", "divinity_s", "divinity_"
     }
 
-    if gui_divinity_misc_group_usefull_features_clantag:GetValue() == 1 then
-
-        --clantag animation
-        if globals.CurTime() - usefull_features_cache.static_clantag_time >= 0.25 then
-            usefull_features_cache.clantag_step = usefull_features_cache.clantag_step + 1
-            usefull_features_cache.static_clantag_time = globals.CurTime()
-        end
-
-        --return clantag to first position
-        if usefull_features_cache.clantag_step == #divinity_clantag then
-            usefull_features_cache.clantag_step = 1 
-        end
-
-        Set_Clantag(divinity_clantag[usefull_features_cache.clantag_step])
-
-    else 
-        Set_Clantag("")
-    end
 end
 client.AllowListener("round_prestart")
 client.AllowListener("player_hurt")
