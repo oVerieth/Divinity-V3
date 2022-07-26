@@ -1,3 +1,6 @@
+Hotfix:
+1) Fixed afrer latest cheat update
+
 Update v3.73:
 1) Improved welcome user
 
